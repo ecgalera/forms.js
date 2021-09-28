@@ -11,7 +11,7 @@
 
 <body>
 
-    <form action="" onsubmit="return validarFormulario">
+    <form action="" onsubmit="return validarFormulario()">
 
         <label for="nombre">
             <span>Nombre:</span>
@@ -25,7 +25,6 @@
         </label>
         <input id="edad" name="edad" type="text">
 
-
         <br><br>
 
         <label for="correo">
@@ -35,10 +34,48 @@
 
         <br><br>
 
-        <input type="submit" value="Submit">
+        <label for="fecha">
+            <span>Fecha:</span>
+        </label>
+        <input id="fecha" name="fecha" type="date">
+        <br><br>
 
+        <label for="selector">
+            <span>Selecciona una opción:</span>
+        </label>
+        <select name="selector" id="selector">
+            <option value="0">valor por defecto</option>
+            <option value="1">Un oso</option>
+            <option value="2">Dos lobos</option>
+            <option value="3">Tres dragones</option>
+        </select>
+        <br><br>
+        <label for="checkBox">
+            <span>cehckbox:</span>
+        </label>
+        <input type="checkBox" name="checkBox" type="checkbox">Haz clic en mí
+
+        <br><br>
+
+        <label for="radioButton">
+            <span>Seleciona una opcion</span>
+        </label>
+
+            <br>
+            <input type="radio" name="radioButton" id="radioButton"> Un botón
+            <br>
+            <input type="radio" name="radioButton" id="radioButton"> Otro botón
+            <br>
+            <input type="radio" name="radioButton" id="radioButton"> Mas botones
+            <br>
+      
+        <br><br>
+        
+        <input type="submit" value="Submit">
+        
     </form>
 
 </body>
 <script src="script.js"></script>
+
 </html>
