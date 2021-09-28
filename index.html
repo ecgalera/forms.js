@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>DOM_Fromularios</title>
+</head>
+
+<body>
+
+    <form action="" onsubmit="return validarFormulario">
+
+        <label for="nombre">
+            <span>Nombre:</span>
+        </label>
+        <input id="nombre" name="nombre" type="text">
+
+        <br><br>
+
+        <label for="edad">
+            <span>Edad:</span>
+        </label>
+        <input id="edad" name="edad" type="text">
+
+
+        <br><br>
+
+        <label for="correo">
+            <span>Carreo Electrónico:</span>
+        </label>
+        <input id="correo" name="correo" type="text">
+
+        <br><br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+</body>
+<script src="script.js"></script>
+</html>
