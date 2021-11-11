@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="public/style.css">
+
+    <title>DOM_Fromularios</title>
+</head>
+
+<body>
+<div class="container_h1">
+    <h1></h1>
+</div>
+
+
+<!-- Datos personales nombre apellido direccion -->
+<div class="container_form">
+
+    <form class="form" action="/save" method="post" onsubmit="return validarFormulario()">
+        <fieldset>
+            <legend>Datos Personales</legend>
+        <!-- NOMBRE -->
+
+            <label for="nombre">
+                <span>Nombre:</span>
+            </label>
+            <input id="nombre" name="cliente_nombre" type="text" class="form-control" placeholder="Completa tu nombre"  />
+
+            <br><br>
+
+        <!-- APELLIDO -->
+
+            <label for="apellido">
+                <span>Apellido:</span>
+            </label>
+            <input id="apellido" name="cliente_apellido" type="text" class="form-control" placeholder="Completa tu apellido"  />
+
+            <br><br>
+            <!-- DNI -->
+            <label for="dni">
+                <span>DNI:</span>
+            </label>
+            <input id="dni" name="cliente_dni" type="text"  class="form-control" placeholder="Pon tu número de DNI"  />
+
+            <br><br>
+            <!--DIRECCION  -->
+            <label for="direccion">
+                <span>Direccion:</span>
+            </label>
+            <input id="direccion" name="cliente_direccion" type="text" class="form-control" placeholder="Completa con calle número y barrio"  />
+
+            <br><br>
+            <!-- TELEFONO -->
+            <label for="telefono">
+                <span>Telefono:</span>
+            </label>
+            <input id="telefono" name="cliente_telefono" type="text" class="form-control"  placeholder="Completa con tu telefono"  />
+
+            <br><br>
+
+            <!-- LOCALIDAD -->
+            <label for="localidad">
+                <span>Localidad:</span>
+            </label>
+            <input id="localidad" name="cliente_localidad_provincia" type="text" class="form-control"  placeholder="Completa con tu Localidad"  />
+
+            <br><br>
+
+            <!--CP.: -->
+            <label for="cp">
+                <span>C.P.:</span>
+            </label>
+            <input id="cp" name="cliente_cp" type="text" class="form-control"  placeholder="Completa tu Codigo Postal"  />
+
+            <br><br>
+
+
+            <label for="correo">
+                <span>Carreo Electrónico:</span>
+            </label>
+            <input id="correo" name="cliente_email" type="text" class="form-control"  placeholder="Completa con tu dirección de Correo Electronico"  />
+
+            <br><br>
+
+            <label for="fecha">
+                <span>Fecha:</span>
+            </label>
+            <input id="fecha" name="cliente_fn" class="form-control" type="date"  />
+            <br><br>
+        </fieldset>
+        </div>
+
+        <br>      
+        <div class="container-button">
+            
+            <input class="button-submit"  type="submit" value="Enivar">
+
+        </div>
+    </form>
+
+</body>
+
+<script src="/public/form-script.js"></script>
+
+</html>

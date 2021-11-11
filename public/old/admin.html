@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <title>Adminitración</title>
+</head>
+<body>
+    
+    <div class="container p-4">
+        <h2 class="mb-4">Listado de Clientes</h2>
+
+    <table class="table table-striped" id="mytable">
+
+        <thead>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>DNI</th>
+            <th>Direccio</th>
+            <th>Telefono</th>
+            <th>Localidad</th>
+            <th>CP</th>
+            <th>Email</th>
+            <th>F. Nacimiento</th>
+        </thead>
+        
+        <tbody>
+            {{#each results}}
+            <tr>
+                <td>{{cliente_id}}</td>
+                <td>{{cliente_nombre}}</td>
+                <td>{{cliente_apellido}}</td>
+                <td>{{cliente_dni}}</td>
+                <td>{{cliente_direccion}}</td>
+                <td>{{cliente_telefono}}</td>
+                <td>{{cliente_localidad_provincia}}</td>
+                <td>{{cliente_cp}}</td>
+                <td>{{cliente_email}}</td>
+                <td>{{cliente_fn}}</td>
+            </tr>
+            {{/each}}
+
+         
+        </tbody>
+    </table>
+ </div>
+
+
+
+
+
+<script src="/public/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <title>Adminitración</title>
+</head>
+<body>
+    
+    <div class="container p-4">
+        <h2 class="mb-4">Listado de Clientes</h2>
+
+    <table class="table table-striped" id="mytable">
+
+        <thead>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>DNI</th>
+            <th>Direccio</th>
+            <th>Telefono</th>
+            <th>Localidad</th>
+            <th>CP</th>
+            <th>Email</th>
+            <th>F. Nacimiento</th>
+        </thead>
+        
+        <tbody>
+            {{#each results}}
+            <tr>
+                <td>{{cliente_id}}</td>
+                <td>{{cliente_nombre}}</td>
+                <td>{{cliente_apellido}}</td>
+                <td>{{cliente_dni}}</td>
+                <td>{{cliente_direccion}}</td>
+                <td>{{cliente_telefono}}</td>
+                <td>{{cliente_localidad_provincia}}</td>
+                <td>{{cliente_cp}}</td>
+                <td>{{cliente_email}}</td>
+                <td>{{cliente_fn}}</td>
+                <td align="right">
+                    <a href="javascript:void(0)" class="btn btn-primary edit" 
+                        data-cliente_id=        "{{cliente_id}}"
+                        data-cliente_nombre=    "{{cliente_nombre}}"
+                        data-cliente_apellido=  "{{cliente_apellido}}"
+                        data-cliente_dni=""=    "{{cliente_dni}}"
+                        data-cliente_direccion= "{{cliente_id}}"
+                        data-cliente_telefono=  "{{cliente_telefono}}"
+                        data-cliente_localidad_provincia=  "{{cliente_localidad_provincia}}"
+                        data-cliente_cp=        "{{cliente_cp}}"
+                        data-cliente_email=     "{{cliente_email}}"
+                        data-cliente_fn=        "{{cliente_fn}}">Editar</a>
+                    <a href="javascript:void(0)" class="btn btn-danger" data-id="{{cliente_id}}"></a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+ </div>
+
+<!-- Modal update -->
+<form action="/update" method="post">
+<div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modificar</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- <form> -->
+            <!-- nombre -->
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Recipient:</label>
+              <input type="text" name="cliente_nombre" class="form-control" id="recipient-name" placeholder="Nombre">
+            </div>
+            <!-- apellido -->
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" name="cliente_apellido" class="form-control" id="recipient-name" placeholder="Apellido">
+            </div>
+            <!-- DNI -->
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" name="cliente_dni" class="form-control" id="recipient-name" placeholder="DNI">
+            </div>
+            <!-- direccion -->
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" name="cliente_direccion" class="form-control" id="recipient-name" placeholder="Direccion">
+            </div>
+            <!-- telefono -->
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" name="cliente_telefono" class="form-control" id="recipient-name" placeholder="Telefono">
+            </div>
+            <!-- localidad - provincia -->
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" name="cliente_localidad_provincia" class="form-control" id="recipient-name" placeholder="Localidad - Provincia">
+            </div>
+            <!-- cp -->
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" name="cliente_cp" class="form-control" id="recipient-name" placeholder="C.P.">
+            </div>
+            <!-- email -->
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" name="cliente_email" class="form-control" id="recipient-name" placeholder="E-mail">
+            </div>
+            <!-- fn -->
+          <!-- </form> -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+  <!-- delete -->
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="/public/js/bootstrap.min.js"></script>
+</body>
+</html>
