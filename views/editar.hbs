@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Adminitración</title>
+</head>
+<body>
+    
+    <div class="container p-1">
+        <h2 class="mb-4">Listado de Clientes</h2>
+
+    <table class="table table-striped" id="mytable">
+
+        <thead>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>DNI</th>
+            <th>Direccio</th>
+            <th>Telefono</th>
+            <th>Localidad</th>
+            <th>CP</th>
+            <th>Email</th>
+            <th>F.N.</th>
+        </thead>
+        
+        <tbody>
+            {{#each results}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{nombre}}</td>
+                <td>{{apellido}}</td>
+                <td>{{dni}}</td>
+                <td>{{direccion}}</td>
+                <td>{{telefono}}</td>
+                <td>{{localidad}}</td>
+                <td>{{cp}}</td>
+                <td>{{email}}</td>
+                <td>{{fn}}</td>
+               <td ><a href="javascript:void(0)" class="btn btn-primary edit" data-id="{{id}}"data-nombre="{{nombre}}"data-apellido=  "{{apellido}}"data-dni=""= "{{dni}}"data-direccion= "{{direccion}}"data-telefono="{{telefono}}"data-localidad="{{localidad}}"data-cp="{{cp}}"data-email= "{{email}}"data-fn="{{fn}}">Edit</a><a href="javascript:void(0)" class="btn btn-danger delete" data-id="{{id}}">Elim</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+ </div>
+
+{{!-- Modal update --}}
+<form action="/update" method="post">
+
+<div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{!-- <form> --}}
+          {{!-- Nombre --}}
+          <div class="form-group mb-3">
+            <label for="recipient-name" class="col-form-label">Nombre</label>
+            <input type="text" class="form-control nombre" name="nombre" placeholder="Editar Nombre">
+          </div>
+          {{!-- Apellido --}}
+          <div class="form-group mb-3">
+            <label for="message-text" class="col-form-label">Apellido</label>
+            <input type="text" class="form-control apellido" name="apellido" placeholder="Editar Nombre">
+          </div>
+          {{!-- DNI --}}
+           <div class="form-group mb-3">
+            <label for="message-text" class="col-form-label">DNI</label>
+            <input type="text" class="form-control dni" name="dni" placeholder="Editar DNI">
+          </div>
+          {{!-- Direccion --}}
+           <div class="form-group mb-3">
+            <label for="message-text" class="col-form-label">Dirección</label>
+            <input type="text" class="form-control direccion" name="direccion" placeholder="Editar Direccion">
+          </div>
+          {{!-- Telefono --}}
+           <div class="form-group mb-3">
+            <label for="message-text" class="col-form-label">Telefono</label>
+            <input type="text" class="form-control telefono" name="telefono" placeholder="Editar Telefono">
+          </div>
+          {{!-- Localidad / Provincia --}}
+           <div class="form-group mb-3">
+            <label for="message-text" class="col-form-label">Localidad/Provincia</label>
+            <input type="text" class="form-control localidad" name="localidad"  placeholder="Editar Localidad/Provincia">
+          </div>
+          {{!-- CP --}} 
+           <div class="form-group mb-3">
+            <label for="message-text" class="col-form-label">C.P.:</label>
+            <input type="text" class="form-control cp" name="cp" placeholder="Editar CP">
+          </div>
+          {{!-- Email --}} 
+          <div class="form-group mb-3">
+            <label for="message-text" class="col-form-label">Email</label>
+            <input type="text" class="form-control email" name="email" placeholder="Editar Email">
+          </div>
+          {{!-- Fecha de Nacimiento --}}
+           <div class="form-group mb-3">
+            <label for="message-text" class="col-form-label">Fecha de Nacimiento</label>
+            <input type="text" class="form-control fn" name="fn" placeholder="Editar Fecha de Nacimiento">
+          </div>
+        {{!-- </form> --}}
+      </div>
+      <div class="modal-footer">
+        <input type="hidden" name="id" class="id">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+{{!-- Delete --}}
+
+<form id="add-row-form" action="/delete" method="post">
+
+<div class="modal fade" id="DeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Borrar Cliente</h5>
+        <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <p>Esta seguro que quiere eliminar los datos del Cliente</p>
+      </div>
+      <div class="modal-footer">
+        <input type="hidden" name="id" class="form-control id">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Borrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+
+
+
+
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ <script src="/js/bootstrap.min.js"></script>
+ <script src="/js/modal.js"></script>
+</body>
+</html>

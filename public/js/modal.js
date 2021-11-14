@@ -1,34 +1,35 @@
 $(document).ready(function(){
     // Mostrar datos al modal para editar registros
     $("#mytable").on("click", ".edit", function() {
-        let cliente_id =        $(this).data("id");
-        let cliente_nombre =    $(this).data("cliente_nombre");
-        let cliente_apellido =  $(this).data("cliente_apellido");
-        let cliente_dni =       $(this).data("cliente_dni");
-        let cliente_direccion = $(this).data("cliente_direccion");
-        let cliente_telefono =  $(this).data("cliente_telefono");
-        let cliente_localidad_provincia = $(this).data("cliente_localidad_provincia");
-        let cliente_cp =        $(this).data("cliente_cp");
-        let cliente_fn =        $(this).data("cliente_fn");
+        let id =        $(this).data("id");
+        let nombre =    $(this).data("nombre");
+        let apellido =  $(this).data("apellido");
+        let dni =       $(this).data("dni");
+        let direccion = $(this).data("direccion");
+        let telefono =  $(this).data("telefono");
+        let localidad= $(this).data("localidad");
+        let cp =        $(this).data("cp");
+        let email =     $(this).data("email");
+        let fn =        $(this).data("fn");
         $("#EditModal").modal("show");
-        $(".cliente_nombre").val(cliente_nombre);
-        $(".cliente_apellido").val(cliente_apellido);
-        $(".cliente_dni").val(cliente_dni);
-        $(".cliente_direccion").val(cliente_direccion);
-        $(".cliente_telefono").val(cliente_telefono);
-        $(".cliente_localidad_provincia").val(cliente_localidad_provincia);
-        $(".cliente_cp").val(cliente_cp);
-        $(".cliente_email").val(cliente_email);
-        $(".cliente_fn").val(cliente_fn);
-        $(".cliente_id").val(cliente_id);
+        $(".nombre").val(nombre);
+        $(".apellido").val(apellido);
+        $(".dni").val(dni);
+        $(".direccion").val(direccion);
+        $(".telefono").val(telefono);
+        $(".localidad_provincia").val(localidad);
+        $(".cp").val(cp);
+        $(".email").val(email);
+        $(".fn").val(fn);
+        $(".id").val(id);
     });
 
 
 // Delete 
 $("#mytable").on("click", ".delete", function(){
-    let cliente_id = $(this).data("id");
+    let id = $(this).data("id");
     $("#DeleteModal").modal("show");
-    $(".cliente_id").val(cliente_id)
+    $(".id").val(id)
     })
 
 });
