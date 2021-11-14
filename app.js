@@ -7,6 +7,7 @@ const app = express();
 app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
+app.use(require("./router/contacto"))  // mail importado
 
 // Motor de plantillas 
 app.set("view engine", "hbs");
